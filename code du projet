@@ -1,0 +1,295 @@
+#!/usr/bin/envpython
+# -*- codage : utf-8 -*-
+#
+#
+
+à partir de la  version d' importation système  
+importer  au hasard
+si  version [ 0 ] ==  "3" :
+    raw_input  =  entrée
+print ( "ptojet python" )
+print ( "membres du groupe: \n MBANZOGHE NZE HARLYNE PRUNELLA SABRINA \n MOUANDA GODGIVEN" )
+print ( 'classe: pr216 Licence 2' )
+imprimer ( "1. calendrier" )
+print ( "2. générateur de mot de passe" )
+impression ( "3. jeu pierre papier ciseau" )
+estampe ( "4. dessiner un coeur" )
+print ( "5. convertir decimal en binaire" )
+print ( "6. table de multiplication d'un nombre au choix" )
+impression ( "7. bonus jeu" )
+tandis que  1 :
+    reponse  =  raw_input ( "Choisissez entre les différentes options : " )
+    si  réponse  en [ '1' ] :
+         calendrier d'importation
+        # Créer calendrier
+        c  =  calendrier . TextCalendar ( calendrier . LUNDI )
+        chaîne  =  c . formatmois ( 2022 , 1 , 0 , 0 )
+        imprimer ( chaîne )
+
+        # Créer un calendrier de style html
+        hc  =  calendrier . HTMLCalendar ( calendrier . LUNDI )
+        chaîne  =  hc . formatmois ( 2022 , 1 )
+        imprimer ( chaîne )
+        Pause
+     réponse  elif dans [ '2' ] :
+
+        #application générique des mots de passe aléatoirement
+        longpass = int ( input ( 'donner la longueur du mot de passe' ))
+        #liste des différents caractères
+        s = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[]^_`{|} '
+        #cest pour coller les chaines de caractere pour former un seul mot
+        mot de passe  =  "" . join ( random . sample ( s , longpass ))
+        imprimer ( mot de passe )
+        Pause
+     réponse  elif dans [ '3' ] :
+        choix  = [ 'c' , 'p' , 'pi' ]
+        score_hasard  =  0
+        score_joueur  =  0
+        tandis que  Vrai :
+            hasard  =  aléatoire . choix ( choix )
+            joueur  =  str ( input ( 'c:ciseaux, \n p:papier, \n pi:pierre \n pour terminer taper f \n ' ))
+            si  joueur  ==  hasard :
+                print ( 'égalité' )
+            elif  joueur  ==  'pi' :
+                    si  hasard  == 'p' :
+                        imprimer ( 'perdu! le papier couvre le papier' )
+                        score_hasard  += 1
+                    elif  hasard  ==  'c' :
+                        impression ( 'gagné! la pierre casse les ciseaux' )
+                        score_joueur += 1
+            elif  joueur  ==  'p' :
+                    si  hasard  ==  'p1' :
+                        print ( 'gagné! le papier couvre le papier' )
+                        score_joueur  +=  1
+                    elif  hasard  ==  'c' :
+                        print ( 'perdu! Les ciseaux coupent le papier' )
+                        score_hasard  +=  1
+            elif  joueur  ==  'c' :
+                    si  hasard  ==  'p1' :
+                        print ( 'perdu! la pierre casse le papier' )
+                        score_hasard  +=  1
+                    elif  hasard  ==  'p' :
+                        print ( 'gagné! les ciseaux coupent le papier' )
+                        score_joueur  +=  1
+            elif  joueur  ==  'f' :
+                    print ( "score:" )
+                    print ( f"hasard:   { score_hasard } " )
+                    print ( f"joueur:   { score_joueur } " )
+                    Pause
+
+        sinon :
+                print ( "erreur... de bien vouloir vérifier la lettre saisie" )
+        Pause
+
+     réponse  elif dans [ '4' ] :
+        pour  i  dans la  plage ( 6 ):
+            pour  j  dans la  plage ( 7 ):
+                si ( i  ==  0  et  j  %  3  !=  0 ) ou ( i  ==  1  et  j  %  3  ==  0 ) ou ( i  -  j  ==  2 ) ou ( i  +  j  ==  8 ):
+                    print ( "* " , fin = "" )
+                sinon :
+                    print ( " " , fin = " " )
+
+            imprimer ()
+
+        Pause
+
+     réponse  elif dans [ '5' ] :
+        n  =  int ( input ( "veuillez saisir un nombre: " ))
+        b  =  0
+        ord  =  0
+        tant que  n  !=  0 :
+            reste  =  n  %  2
+            p  = 10  **  ord
+            b  =  b  +  reste  *  p
+            ord  =  ord  + 1
+            n  =  n  // 2
+        impression ( b )
+        Pause
+
+
+     réponse  elif dans [ '6' ] :
+         def  table_multiplication ( n ):
+            pour  i  dans la  plage ( 1 , 13 ):
+                imprimer ( je , "x" , n , "=" , je * n )
+         tandis que  Vrai :
+            n  =  int ( input ( "veuillez saisir un nombre: " ))
+            si  n  >  0 :
+                    Pause
+         print ( "table de multiplication de " , n )
+         table_multiplication ( n )
+
+     réponse  elif dans [ '7' ] :
+        importer  numpy  en tant que  np
+        importer  pygame
+        importer  système
+        importer des  mathématiques
+
+        BLEU  = ( 0 , 0 , 255 )
+        NOIR  = ( 0 , 0 , 0 )
+        ROUGE  = ( 255 , 0 , 0 )
+        JAUNE  = ( 255 , 255 , 0 )
+
+        ROW_COUNT  =  6
+        COLUMN_COUNT  =  7
+
+
+        def  create_board () :
+            planche  =  np . zéros (( ROW_COUNT , COLUMN_COUNT ))
+             panneau de retour
+
+
+        def  drop_piece ( board , row , col , piece ):
+            planche [ rangée ][ col ] =  pièce
+
+
+        def  is_valid_location ( board , col ):
+             carte de retour [ ROW_COUNT  -  1 ][ col ] ==  0
+
+
+        def  get_next_open_row ( planche , col ):
+            pour  r  dans la  plage ( ROW_COUNT ):
+                si  planche [ r ][ col ] ==  0 :
+                    retour  r
+
+
+        def  print_board ( board ):
+            imprimer ( np . retourner ( planche , 0 ))
+
+
+        def  winner_move ( board , piece ):
+            # Vérifiez les emplacements horizontaux pour gagner
+            pour  c  dans la  plage ( COLUMN_COUNT  -  3 ):
+                pour  r  dans la  plage ( ROW_COUNT ):
+                    si  planche [ r ][ c ] ==  pièce  et  planche [ r ][ c  +  1 ] ==  pièce  et  planche [ r ][ c  +  2 ] ==  pièce  et  planche [ r ][
+                        c  +  3 ] ==  pièce :
+                        retourner  Vrai
+
+            # Vérifiez les emplacements verticaux pour gagner
+            pour  c  dans la  plage ( COLUMN_COUNT ):
+                pour  r  dans la  plage ( ROW_COUNT  -  3 ):
+                    si  planche [ r ][ c ] ==  pièce  et  planche [ r  +  1 ][ c ] ==  pièce  et  planche [ r  +  2 ][ c ] ==  pièce  et  planche [ r  +  3 ][
+                        c ] ==  pièce :
+                        retourner  Vrai
+
+            # Vérifier les diaganols à pente positive
+            pour  c  dans la  plage ( COLUMN_COUNT  -  3 ):
+                pour  r  dans la  plage ( ROW_COUNT  -  3 ):
+                    si  planche [ r ][ c ] ==  pièce  et  planche [ r  +  1 ][ c  +  1 ] ==  pièce  et  planche [ r  +  2 ][ c  +  2 ] ==  pièce  et \
+                            plateau [ r  +  3 ][
+                                c  +  3 ] ==  pièce :
+                        retourner  Vrai
+
+            # Vérifier les diaganols à pente négative
+            pour  c  dans la  plage ( COLUMN_COUNT  -  3 ):
+                pour  r  dans la  plage ( 3 , ROW_COUNT ):
+                    si  planche [ r ][ c ] ==  pièce  et  planche [ r  -  1 ][ c  +  1 ] ==  pièce  et  planche [ r  -  2 ][ c  +  2 ] ==  pièce  et \
+                            plateau [ r  -  3 ][
+                                c  +  3 ] ==  pièce :
+                        retourner  Vrai
+
+
+        def  draw_board ( board ):
+            pour  c  dans la  plage ( COLUMN_COUNT ):
+                pour  r  dans la  plage ( ROW_COUNT ):
+                    pygame . dessiner . rect ( écran , BLEU ,
+                                     ( c  *  TAILLE CARRÉ , r  *  TAILLE CARRÉ  +  TAILLE CARRÉ , TAILLE CARRÉ , TAILLE CARRÉ ))
+                    pygame . dessiner . cercle ( écran , NOIR , (
+                        int ( c  *  TAILLE CARREE  +  TAILLE CARREE  /  2 ), int ( r  *  TAILLE CARREE  +  TAILLE CARREE  + TAILLE  CARREE  /  2 )),
+                                       RAYON )
+
+            pour  c  dans la  plage ( COLUMN_COUNT ):
+                pour  r  dans la  plage ( ROW_COUNT ):
+                    si  planche [ r ][ c ] ==  1 :
+                        pygame . dessiner . cercle ( écran , ROUGE , (
+                            int ( c  *  SQUARESIZE  +  SQUARESIZE  /  2 ), hauteur  -  int ( r  *  SQUARESIZE  +  SQUARESIZE  /  2 )),
+                                           RAYON )
+                     carte elif [ r ][ c ] ==  2 :
+                        pygame . dessiner . cercle ( écran , JAUNE , (
+                            int ( c  *  SQUARESIZE  +  SQUARESIZE  /  2 ), hauteur  -  int ( r  *  SQUARESIZE  +  SQUARESIZE  /  2 )),
+                                           RAYON )
+            pygame . afficher . mettre à jour ()
+
+
+        tableau  =  create_board ()
+        print_board ( tableau )
+        game_over  =  Faux
+        tour  =  0
+
+        pygame . initialisation ()
+
+        TAILLE CARRÉE  =  100
+
+        largeur  =  COLUMN_COUNT  *  SQUARESIZE
+        hauteur  = ( ROW_COUNT  +  1 ) *  SQUARESIZE
+
+        taille  = ( largeur , hauteur )
+
+        RAYON  =  int ( TAILLE CARREE  /  2  -  5 )
+
+        écran  =  pygame . afficher . set_mode ( taille )
+        draw_board ( tableau )
+        pygame . afficher . mettre à jour ()
+
+        mafont  =  pygame . police . SysFont ( "monospace" , 75 )
+
+         sans  game_over : _
+
+            pour l'  événement  dans  pygame . événement . obtenir ():
+                si  événement . tapez  ==  pygame . QUITTER :
+                    système . sortie ()
+
+                si  événement . tapez  ==  pygame . MOUSEMOTION :
+                    pygame . dessiner . rect ( écran , NOIR , ( 0 , 0 , largeur , TAILLE CARREE ))
+                    posx  =  événement . position [ 0 ]
+                    si  tour  ==  0 :
+                        pygame . dessiner . cercle ( écran , ROUGE , ( posx , int ( SQUARESIZE  /  2 )), RADIUS )
+                    sinon :
+                        pygame . dessiner . cercle ( écran , JAUNE , ( posx , int ( SQUARESIZE  /  2 )), RADIUS )
+                pygame . afficher . mettre à jour ()
+
+                si  événement . tapez  ==  pygame . BOUTON DE SOURIS BAS :
+                    pygame . dessiner . rect ( écran , NOIR , ( 0 , 0 , largeur , TAILLE CARREE ))
+                    # print(event.pos)
+                    # Demander l'entrée du joueur 1
+                    si  tour  ==  0 :
+                        posx  =  événement . position [ 0 ]
+                        col  =  int ( math . floor ( posx  /  SQUARESIZE ))
+
+                        if  is_valid_location ( board , col ):
+                            row  =  get_next_open_row ( board , col )
+                            drop_piece ( planche , rangée , col , 1 )
+
+                            if  winner_move ( board , 1 ):
+                                label  =  mapolice . rendre ( "Le joueur 1 gagne !!" , 1 , ROUGE )
+                                écran . blit ( étiquette , ( 40 , 10 ))
+                                game_over  =  Vrai
+
+
+                    # # Demander l'entrée du joueur 2
+                    sinon :
+                        posx  =  événement . position [ 0 ]
+                        col  =  int ( math . floor ( posx  /  SQUARESIZE ))
+
+                        if  is_valid_location ( board , col ):
+                            row  =  get_next_open_row ( board , col )
+                            drop_piece ( planche , rangée , col , 2 )
+
+                            if  winner_move ( board , 2 ):
+                                label  =  mapolice . rendre ( "Le joueur 2 gagne !!" , 1 , JAUNE )
+                                écran . blit ( étiquette , ( 40 , 10 ))
+                                game_over  =  Vrai
+
+                    print_board ( tableau )
+                    draw_board ( tableau )
+
+                    tour  +=  1
+                    tourner  =  tourner  %  2
+
+                    si  game_over :
+                        pygame . temps . attendre ( 3000 )
+
+
+
+    sinon :
+        print ( "Choix incorrect !" )
+impression ( réponse )
